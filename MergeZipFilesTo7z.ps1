@@ -1,5 +1,13 @@
-﻿$SevenZipExe = "C:\Program Files\7-zip\7z.exe"
+﻿# This script will retrieve all zip files in a directory, unzip them one at a time into new directories,
+# then add those directories to a .7z file. Useful if you have a collection of zip files with mostly the same
+# contents, where you'll benefit from combining them together, but you don't have enough disk space to unzip
+# all of them at once.
+
+# Set these two constant values:
+
+$SevenZipExe = "C:\Program Files\7-zip\7z.exe"
 $Dir = "C:\temp\je"
+
 $ZipFiles = Get-ChildItem -Path "$($dir)\*" -Include "*.zip"
 $NowFormatted = Get-Date -Format "yyyyMMddHHmmssfff"
 $RandNum = Get-Random -Minimum 1000000 -Maximum 9999999
