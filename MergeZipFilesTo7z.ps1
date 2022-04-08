@@ -16,7 +16,7 @@ $OutputFile = "$($dir)\output_$($NowFormatted)_$($RandNum).7z"
 $ZipFiles | ForEach-Object {
     $ZipFileName = $_.FullName
     $DirName = $_.FullName -replace "\.zip$", ""
-    Start-Process -FilePath $SevenZipExe -ArgumentList "x `"$ZipFileName`" -o`"$DirName`"" -Wait
-    Start-Process -FilePath $SevenZipExe -ArgumentList "a `"$OutputFile`" `"$DirName`"" -Wait
+    Start-Process -FilePath $SevenZipExe -ArgumentList "x `"$ZipFileName`" -o`"$DirName`"" -Wait -NoNewWindow
+    Start-Process -FilePath $SevenZipExe -ArgumentList "a `"$OutputFile`" `"$DirName`"" -Wait -NoNewWindow
     Remove-Item -Recurse -Path $DirName
 }
