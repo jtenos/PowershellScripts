@@ -3,15 +3,20 @@
 # contents, where you'll benefit from combining them together, but you don't have enough disk space to unzip
 # all of them at once.
 
+param(
+    [Parameter(Position=0,Mandatory)]
+    [string]$OutputBaseFileName
+)
+
 # Set these two constant values:
 
 $SevenZipExe = "C:\Program Files\7-zip\7z.exe"
 $Dir = "C:\temp\je"
 
-$ZipFiles = Get-ChildItem -Path "$($dir)\*" -Include "*.zip"
+$ZipFiles = Get-ChildItem -Path "$($Dir)\*" -Include "*.zip"
 $NowFormatted = Get-Date -Format "yyyyMMddHHmmssfff"
 $RandNum = Get-Random -Minimum 1000000 -Maximum 9999999
-$OutputFile = "$($dir)\output_$($NowFormatted)_$($RandNum).7z"
+$OutputFile = "$($Dir)\$($OutputBaseFileName).7z"
 
 $ZipFiles | ForEach-Object {
     $ZipFileName = $_.FullName
