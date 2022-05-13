@@ -15,6 +15,6 @@ $Files | ForEach-Object {
     $GUID = New-Guid
     $EncryptedFileName = Join-Path -Path $OutputDir -ChildPath $GUID.ToString("N")
     # Write-Output $EncryptedFileName
-    Start-Process -FilePath $GpgExe -ArgumentList "--batch --symmetric --passphrase MY_PASSPHRASE_GOES_HERE --cipher-algo aes256 --compress-algo 0 --output `"$EncryptedFileName`" `"$FileName`"" -Wait
+    Start-Process -FilePath $GpgExe -ArgumentList "--batch --symmetric --passphrase MY_PASSPHRASE_GOES_HERE --cipher-algo aes256 --compress-algo 0 --output `"$EncryptedFileName`" `"$FileName`"" -Wait -NoNewWindow
     Write-Output "$($GUID.ToString("N"))`t$($_.Name)"
 }
