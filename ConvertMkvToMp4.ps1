@@ -19,5 +19,5 @@ $Files | ForEach-Object {
     $ConvertedFileName = Join-Path -Path $OutputDir -ChildPath $Mp4FileName
     # Write-Output $ConvertedFileName
 
-    Start-Process -FilePath $HandbrakeExe -ArgumentList "--input `"$FileName`" --output `"$ConvertedFileName`" --format av_mp4 --quality 18 --subtitle 1 --subtitle-burn" -Wait
+    Start-Process -FilePath $HandbrakeExe -ArgumentList "--input `"$FileName`" --output `"$ConvertedFileName`" --format av_mp4 --quality 18 --subtitle 1 --subtitle-burn" -Wait -NoNewWindow
 }
